@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Sukhoviy_01.SignInControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="10">
+            <TextBlock Text="Calendar" 
+                       FontWeight="Bold" 
+                       FontSize="60"
+                       FontFamily="Arial"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Left" Orientation="Vertical" Margin="15, 0, 15, 15">
+                <TextBlock Text="Choose your birthday:"
+                           FontWeight="Bold" 
+                           FontSize="15"
+                           FontFamily="Arial"/>
+                <DatePicker x:Name="calendar" FirstDayOfWeek="Monday"
+                            SelectedDate ="{Binding Date}">
+                </DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="15">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock Text="User age: "
+                               FontWeight="Bold" 
+                               FontSize="15"
+                               FontFamily="Arial"/>
+                    <TextBlock x:Name="Age" Text="{Binding Path=Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               FontWeight="Bold" 
+                               FontSize="15"
+                               FontFamily="Arial"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock Text="Western: "
+                               FontWeight="Bold" 
+                               FontSize="15"
+                               FontFamily="Arial"/>
+                    <TextBlock x:Name="Western" Text="{Binding Path=Western, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               FontWeight="Bold" 
+                               FontSize="15"
+                               FontFamily="Arial"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock Text="Chinese: "
+                               FontWeight="Bold" 
+                               FontSize="15"
+                               FontFamily="Arial"/>
+                    <TextBlock x:Name="Chinese" Text="{Binding Path=Chinese, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               FontWeight="Bold" 
+                               FontSize="15"
+                               FontFamily="Arial"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="50" Content="Calculate" Command="{Binding CalculateCommand}"/>
+    </Grid>
+</UserControl>
